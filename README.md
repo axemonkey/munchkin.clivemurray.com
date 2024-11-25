@@ -12,4 +12,4 @@ http://localhost:8080
 
 ## Deploys to
 
-https://calendar.clivemurray.com
+https://munchkin.clivemurray.com
