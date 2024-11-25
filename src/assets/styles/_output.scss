@@ -1,9 +1,6 @@
-#output {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-
 #generated-output {
 	font-size: 2rem;
+	margin: 2rem;
+	padding: 2rem;
+	background-color: red;
 }

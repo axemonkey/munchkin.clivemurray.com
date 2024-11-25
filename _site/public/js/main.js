@@ -26,7 +26,12 @@ const getFormData = () => {
 	const theForm = document.querySelector('form');
 	const md = {};
 
-	md.name = theForm.querySelector('#name').value.trim();
+	const nameValue = theForm.querySelector('#name').value.trim();
+	if (nameValue === '') {
+		md.name = 'Anonymous Munchkin';
+	} else {
+		md.name = nameValue;
+	}
 	md.level = theForm.querySelector('#level').value.trim();
 	md.gender = getCheckedRadio('gender');
 	md.raceModifier = getCheckedRadio('raceModifier');
@@ -108,5 +113,20 @@ const init = () => {
 	}
 };
 
+const checkScroll = () => {
+	const windowScrollY = Math.round(window.scrollY);
+	const offset = document.querySelector('#intro').getBoundingClientRect().height;
+	// console.log(windowScrollY);
+	// console.log(offset);
+
+	if (windowScrollY > offset) {
+		document.querySelector('#output').style.paddingTop = `${windowScrollY - offset}px`;
+	}
+};
+
 window.addEventListener('load', init);
-// window.addEventListener('keyup', createOutputFromForm);
+window.addEventListener('scroll', () => {
+	checkScroll();
+}, {
+	passive: true,
+});
