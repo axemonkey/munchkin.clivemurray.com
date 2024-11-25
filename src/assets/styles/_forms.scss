@@ -1,0 +1,91 @@
+$borderStyle: none;
+$borderRadius: 5px;
+$fieldWidth: 300px;
+
+@mixin fieldStyle {
+	padding: 5px;
+	border: $borderStyle;
+	border-radius: $borderRadius;
+}
+
+fieldset {
+	padding: 1em;
+}
+
+fieldset + fieldset {
+	margin-top: 2em;
+}
+
+legend {
+	margin-left: 0;
+}
+
+textarea {
+	width: $fieldWidth;
+	height: 125px;
+	@include fieldStyle;
+}
+
+input[type="text"] {
+	width: $fieldWidth;
+	@include fieldStyle;
+}
+
+// big radios
+
+.radioOption {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.radioOption label {
+	align-self: center;
+	max-width: calc(100% - 74px);
+	margin-bottom: 0;
+	padding: 7px 15px;
+	cursor: pointer;
+	touch-action: manipulation;
+	display: block;
+	line-height: 1.315;
+}
+
+.radioOption label::before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 40px;
+	height: 40px;
+	border: 2px solid black;
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+}
+
+.radioOption label::after {
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	width: 0;
+	height: 0;
+	border: 10px solid black;
+	border-radius: 50%;
+	opacity: 0;
+	background: currentcolor;
+}
+
+.radioOption input {
+	z-index: 1;
+	width: 44px;
+	height: 44px;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.radioOption input:checked + label::after {
+	opacity: 1;
+}

@@ -1,0 +1,123 @@
+---
+layout: main.njk
+title: Munchkin Winner
+---
+
+<main>
+	<div id="intro">
+		<h1>Congratulations!</h1>
+		<h2>You won a game of Munchkin!</h2>
+		<p>Now, to print out your Champion’s card, fill in the following details based on your character at the end of the game.</p>
+	</div>
+
+	<form>
+		<fieldset id="nameFieldset">
+			<legend>Who won?</legend>
+			<div class="inputGroup">
+				<input type="text" name="name" id="name" value="Munchkin">
+			</div>
+		</fieldset>
+
+		<fieldset id="levelFieldset">
+			<legend>Level (usually 10)</legend>
+			<div class="inputGroup">
+				<input type="text" name="level" value="10" id="level">
+			</div>
+		</fieldset>
+
+		<fieldset id="genderFieldset">
+			<legend>Gender</legend>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="gender" value="male" id="genderMale">
+				<label for="genderMale">Male</label>
+			</div>
+
+			<div class="inputGroup radioOption">
+				<input type="radio" name="gender" value="female" id="genderFemale">
+				<label for="genderFemale">Female</label>
+			</div>
+		</fieldset>
+
+		<fieldset id="raceModifierGroup">
+			<legend>Race Modifier (Halfbreed, etc)</legend>
+
+			<div class="inputGroup radioOption">
+				<input type="radio" name="raceModifier" value="" id="raceModifierNone">
+				<label for="raceModifierNone">None</label>
+			</div>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="raceModifier" value="Halfbreed" id="raceModifierHalfbreed">
+				<label for="raceModifierHalfbreed">Halfbreed</label>
+			</div>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="raceModifier" value="Thirdbreed" id="raceModifierThirdbreed">
+				<label for="raceModifierThirdbreed">Thirdbreed</label>
+			</div>
+		</fieldset>
+
+		<fieldset id="racesFieldset">
+			<legend>Race(s)</legend>
+			<ul>
+				<li>Leave blank for "human"</li>
+				<li>One race per line</li>
+			</ul>
+			<textarea name="races" id="races"></textarea>
+		</fieldset>
+
+		<fieldset id="classModifierGroup">
+			<legend>Class Modifier (Super Munchkin, etc)</legend>
+
+			<div class="inputGroup radioOption">
+				<input type="radio" name="classModifier" value="" id="classModifierNone">
+				<label for="classModifierNone">None</label>
+			</div>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="classModifier" value="Super Munchkin" id="classModifierSuperMunchkin">
+				<label for="classModifierSuperMunchkin">Super Munchkin</label>
+			</div>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="classModifier" value="Super Duper Munchkin" id="classModifierSuperDuperMunchkin">
+				<label for="classModifierSuperDuperMunchkin">Super Duper Munchkin</label>
+			</div>
+			<div class="inputGroup radioOption">
+				<input type="radio" name="classModifier" value="Ultra Munchkin" id="classModifierUltraMunchkin">
+				<label for="classModifierUltraMunchkin">Ultra Munchkin</label>
+			</div>
+		</fieldset>
+
+		<fieldset id="classesFieldset">
+			<legend>Class(es)</legend>
+			<ul>
+				<li>Leave blank if none</li>
+				<li>One class per line</li>
+			</ul>
+			<textarea name="classes" id="classes"></textarea>
+		</fieldset>
+
+		<fieldset id="gearFieldset">
+			<legend>Notable Equipment (optional)</legend>
+			<ul>
+				<li>Don't list every potion and item you have, or it probably won't fit on the card. Maybe just your best 2 or 3 items</li>
+				<li>One item per line</li>
+			</ul>
+			<textarea name="gear" id="gear"></textarea>
+		</fieldset>
+
+		<fieldset id="steedFieldset">
+			<legend>Steed (optional)</legend>
+			<input type="text" name="steed" id="steed">
+		</fieldset>
+
+		<fieldset id="final">
+			<legend>Final Foe (optional)</legend>
+			<p>What foul creature did you vanquish to gain the winning level?</p>
+			<input type="text" name="foe" id="foe">
+		</fieldset>
+
+	</form>
+
+	<div id="output">
+
+	</div>
+
+</main>
