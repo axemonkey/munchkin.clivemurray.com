@@ -79,8 +79,8 @@
 	  outputDiv.id = 'generated-output';
 	  let htmlStr = '';
 	  htmlStr += `<p>`;
-	  htmlStr += `The winner was <strong>${formData.name}</strong>, a`;
-	  htmlStr += ` level ${formData.level} `;
+	  htmlStr += `The winner was <strong class="munchkin">${formData.name}</strong>, a`;
+	  htmlStr += ` <strong class="munchkin">level ${formData.level} `;
 	  htmlStr += ` ${formData.gender}`;
 	  if (formData.raceModifier) {
 	    htmlStr += ` ${formData.raceModifier}`;
@@ -92,15 +92,16 @@
 	  if (formData.classes) {
 	    htmlStr += ` ${formData.classes.join('/')}`;
 	  }
+	  htmlStr += '</strong>';
 	  if (formData.gear) {
-	    htmlStr += `, using their ${formatGear(formData.gear)}`;
+	    htmlStr += `, using their <strong class="munchkin">${formatGear(formData.gear)}</strong>`;
 	  }
 	  if (formData.steed) {
-	    htmlStr += `, riding a ${formData.steed}`;
+	    htmlStr += `, riding a <strong class="munchkin">${formData.steed}</strong>`;
 	  }
 	  htmlStr += `.</p>`;
 	  if (formData.foe) {
-	    htmlStr += `<p>${formData.name} vanquished <strong>${formData.foe}</strong> to gain the final level and win!</p>`;
+	    htmlStr += `<p>${formData.name} vanquished the <strong class="munchkin">${formData.foe}</strong> to gain the final level and win!</p>`;
 	  }
 	  outputDiv.innerHTML = htmlStr;
 	  document.querySelector('#output').replaceChildren(outputDiv);
@@ -117,21 +118,22 @@
 	    }
 	  }
 	};
-	const checkScroll = () => {
-	  const windowScrollY = Math.round(window.scrollY);
-	  const offset = document.querySelector('#intro').getBoundingClientRect().height;
-	  // console.log(windowScrollY);
-	  // console.log(offset);
 
-	  if (windowScrollY > offset) {
-	    document.querySelector('#output').style.paddingTop = `${windowScrollY - offset}px`;
-	  }
-	};
+	// const checkScroll = () => {
+	// 	const windowScrollY = Math.round(window.scrollY);
+	// 	const offset = document.querySelector('#intro').getBoundingClientRect().height;
+
+	// 	if (windowScrollY > offset) {
+	// 		document.querySelector('#output').style.paddingTop = `${windowScrollY - offset}px`;
+	// 	}
+	// };
+
 	window.addEventListener('load', init);
-	window.addEventListener('scroll', () => {
-	  checkScroll();
-	}, {
-	  passive: true
-	});
+
+	// window.addEventListener('scroll', () => {
+	// 	checkScroll();
+	// }, {
+	// 	passive: true,
+	// });
 
 })();

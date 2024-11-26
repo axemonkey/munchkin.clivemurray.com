@@ -1,6 +1,26 @@
+@import "vars";
+
 #generated-output {
-	font-size: 2rem;
 	margin: 2rem;
 	padding: 2rem;
-	background-color: red;
+	color: #000;
+	width: calc(50% - 4rem);
+	text-align: center;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: url("/public/images/texture/marjan-blan-_kUxT8WkoeY-unsplash.jpg");
+	background-size: cover;
+	border: 2px solid $munchkin-text;
+	border-radius: 8px;
+}
+
+#generated-output p {
+	font-size: 2rem;
+	line-height: 1.4;
+}
+
+.munchkin {
+	font-family: $munchkin-font;
+	color: $munchkin-text;
 }

@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $borderStyle: none;
 $borderRadius: 5px;
 $fieldWidth: 100%;
@@ -6,14 +8,15 @@ $fieldWidth: 100%;
 	padding: 5px;
 	border: $borderStyle;
 	border-radius: $borderRadius;
+	color: $munchkin-text;
+	background-color: color.adjust($munchkin-bg, $lightness: 10%);
 }
 
 fieldset {
 	padding: 1em;
-}
-
-fieldset + fieldset {
-	margin-top: 2em;
+	margin-bottom: 2rem;
+	border: 2px solid $munchkin-text;
+	border-radius: 8px;
 }
 
 legend {
@@ -58,7 +61,7 @@ input[type="text"] {
 	left: 2px;
 	width: 40px;
 	height: 40px;
-	border: 2px solid black;
+	border: 2px solid $munchkin-text;
 	border-radius: 50%;
 	background: transparent;
 	cursor: pointer;
@@ -71,7 +74,7 @@ input[type="text"] {
 	left: 12px;
 	width: 0;
 	height: 0;
-	border: 10px solid black;
+	border: 10px solid $munchkin-text;
 	border-radius: 50%;
 	opacity: 0;
 	background: currentcolor;
@@ -88,4 +91,21 @@ input[type="text"] {
 
 .radioOption input:checked + label::after {
 	opacity: 1;
+}
+
+button {
+	display: block;
+	margin: 2rem auto;
+	font-size: 4rem;
+	font-family: $main-font;
+	text-align: center;
+	color: $munchkin-bg;
+	background-color: $munchkin-text;
+	border: 6px outset color.adjust($munchkin-text, $lightness: 20%);
+	border-radius: 200px;
+	padding: 1rem 3rem;
+}
+
+button:hover {
+	background-color: color.adjust($munchkin-text, $lightness: 20%);
 }

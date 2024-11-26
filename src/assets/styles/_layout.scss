@@ -2,24 +2,28 @@ main {
 	display: grid;
 	gap: 1rem;
 	grid-template-rows: auto 1fr;
-}
-
-#intro {
-	margin-bottom: 1rem;
-}
-
-#wrapper {
-	display: grid;
-	gap: 1rem;
 	grid-template-columns: 1fr 1fr;
+	width: auto;
 }
 
-// form {
-// 	width: 50%;
-// 	flex: 0;
-// }
+header {
+	grid-column: 1 / span 2;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
 
-// #output {
-// 	width: 50%;
-// 	flex: 0;
-// }
+form {
+	grid-column: 1;
+	z-index: 1;
+	padding: 1rem;
+}
+
+#output {
+	grid-column: 2;
+	z-index: 1;
+}
+
+#generated-output {
+	position: fixed;
+}

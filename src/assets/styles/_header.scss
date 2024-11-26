@@ -1,0 +1,20 @@
+@import "vars";
+
+header {
+	background-color: $munchkin-bg;
+
+	// background-position: center center;
+	// background-repeat: no-repeat;
+	// background-attachment: fixed;
+	// background-image: url("/public/images/bernard-hermant-hQ3WZnY3yZ0-unsplash.jpg");
+	// background-size: cover;
+}
+
+.header-inner {
+	margin: 1rem auto;
+	max-width: 1040px;
+	padding-left: 160px;
+	padding-right: 100px;
+	background: url("/public/images/male.png") left top no-repeat,
+		url("/public/images/female.png") right top no-repeat;
+}
