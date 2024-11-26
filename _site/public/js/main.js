@@ -114,19 +114,4 @@ const init = () => {
 	}
 };
 
-// const checkScroll = () => {
-// 	const windowScrollY = Math.round(window.scrollY);
-// 	const offset = document.querySelector('#intro').getBoundingClientRect().height;
-
-// 	if (windowScrollY > offset) {
-// 		document.querySelector('#output').style.paddingTop = `${windowScrollY - offset}px`;
-// 	}
-// };
-
 window.addEventListener('load', init);
-
-// window.addEventListener('scroll', () => {
-// 	checkScroll();
-// }, {
-// 	passive: true,
-// });
