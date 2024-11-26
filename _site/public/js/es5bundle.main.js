@@ -117,6 +117,11 @@
 	      textInput.addEventListener(event, createOutputFromForm);
 	    }
 	  }
+	  const printButton = document.querySelector('button');
+	  printButton.addEventListener('click', event => {
+	    event.preventDefault();
+	    window.print();
+	  });
 	};
 	window.addEventListener('load', init);
 

@@ -3,6 +3,30 @@
 }
 
 body {
+	text-align: center;
+}
+
+header,
+form {
+	display: none;
+}
+
+main {
+	display: block;
+	width: 100%;
+	text-align: center;
+	background: red;
+}
+
+#output {
+	display: block;
 	padding: 0;
-	margin: 0;
+}
+
+#generated-output {
+	width: 10cm;
+	margin: auto;
+	position: static;
+	print-color-adjust: exact !important;
+	background-attachment: initial;
 }
