@@ -120,6 +120,7 @@
 	  const printButton = document.querySelector('button');
 	  printButton.addEventListener('click', event => {
 	    event.preventDefault();
+	    console.log('print clicked');
 	    window.print();
 	  });
 	};
