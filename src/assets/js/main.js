@@ -57,14 +57,26 @@ const getFormData = () => {
 	md.steed = theForm.querySelector('#steed').value.trim();
 	md.foe = theForm.querySelector('#foe').value.trim();
 
-	console.log(md);
 	return md;
+};
+
+const arrayFix = array => {
+	const filteredArray = array.filter(item => {
+		return item !== '';
+	});
+
+	return filteredArray;
+};
+
+const arrayFixAndJoin = (array, joiner) => {
+	const filteredArray = arrayFix(array);
+	// console.log(filteredArray);
+
+	return filteredArray.join(joiner);
 };
 
 const createOutputFromForm = () => {
 	const formData = getFormData();
-	console.log(formData);
-
 	const outputDiv = document.createElement('div');
 	outputDiv.id = 'generated-output';
 
@@ -76,16 +88,16 @@ const createOutputFromForm = () => {
 	if (formData.raceModifier) {
 		htmlStr += ` ${formData.raceModifier}`;
 	}
-	htmlStr += ` ${formData.races.join('/')}`;
+	htmlStr += ` ${arrayFixAndJoin(formData.races, '/')}`;
 	if (formData.classModifier) {
 		htmlStr += ` ${formData.classModifier}`;
 	}
 	if (formData.classes) {
-		htmlStr += ` ${formData.classes.join('/')}`;
+		htmlStr += ` ${arrayFixAndJoin(formData.classes, '/')}`;
 	}
 	htmlStr += '</strong>';
 	if (formData.gear) {
-		htmlStr += `, using their <strong class="munchkin">${formatGear(formData.gear)}</strong>`;
+		htmlStr += `, using their <strong class="munchkin">${formatGear(arrayFix(formData.gear))}</strong>`;
 	}
 	if (formData.steed) {
 		htmlStr += `, riding a <strong class="munchkin">${formData.steed}</strong>`;
@@ -106,10 +118,10 @@ const init = () => {
 	createOutputFromForm();
 
 	const eventList = ['change', 'keyup', 'paste', 'input', 'propertychange', 'click'];
-	const textInputs = theForm.querySelectorAll('input[type="text"], input[type="radio"], textarea');
-	for (const textInput of textInputs) {
+	const formInputs = theForm.querySelectorAll('input[type="text"], input[type="radio"], textarea');
+	for (const formInput of formInputs) {
 		for (const event of eventList) {
-			textInput.addEventListener(event, createOutputFromForm);
+			formInput.addEventListener(event, createOutputFromForm);
 		}
 	}
 
