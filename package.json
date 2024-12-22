@@ -13,7 +13,7 @@
     "lint:styles": "npm-run-all prettify stylelint",
     "prettify": "prettier './src/assets/styles/**/*.scss' --write",
     "stylelint": "stylelint './src/assets/styles/**/*.scss' --customSyntax postcss-scss",
-    "build:copyassets": "node tooling/copy-assets.js src fonts",
+    "build:copyassets": "node tooling/copy-assets.js src fonts,files",
     "build:images": "node tooling/process-images.js src",
     "build:styles": "node tooling/build-css.js src",
     "build:js": "node tooling/build-js.js src",

@@ -49,3 +49,15 @@ input,
 textarea {
 	font-family: $main-font;
 }
+
+.centred {
+	text-align: center;
+}
+
+p.small {
+	font-size: 1rem;
+}
+
+p.small a {
+	color: $munchkin-text;
+}
