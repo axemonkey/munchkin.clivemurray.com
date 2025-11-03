@@ -1,4 +1,4 @@
-const lz = n => {
+const lz = (n) => {
 	return Number(n) < 10 ? `0${n}` : `${n}`;
 };
 
@@ -7,9 +7,9 @@ const getURLParams = () => {
 	return params;
 };
 
-const niceList = array => {
+const niceList = (array) => {
 	if (!array || array.length === 0) {
-		return '';
+		return "";
 	}
 	var clone = array.slice(0);
 
@@ -18,14 +18,10 @@ const niceList = array => {
 			return clone[0];
 		}
 		if (clone.length === 2) {
-			return clone[0] + ' and ' + clone[1];
+			return clone[0] + " and " + clone[1];
 		}
-		return clone.shift() + ', ' + build();
+		return clone.shift() + ", " + build();
 	})();
 };
 
-export {
-	lz,
-	getURLParams,
-	niceList,
-};
+export { lz, getURLParams, niceList };
