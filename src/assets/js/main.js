@@ -1,4 +1,4 @@
-import { niceList } from "./modules/tools.js";
+import { niceList } from './modules/tools.js';
 
 const formatGear = (gearArray) => {
 	return niceList(gearArray);
@@ -19,50 +19,50 @@ const getCheckedRadio = (groupName) => {
 			return radioEl.value;
 		}
 	}
-	return "";
+	return '';
 };
 
 const getFormData = () => {
-	const theForm = document.querySelector("form");
+	const theForm = document.querySelector('form');
 	const md = {};
 
-	const nameValue = theForm.querySelector("#name").value.trim();
-	if (nameValue === "") {
-		md.name = "Anonymous Munchkin";
+	const nameValue = theForm.querySelector('#name').value.trim();
+	if (nameValue === '') {
+		md.name = 'Anonymous Munchkin';
 	} else {
 		md.name = nameValue;
 	}
-	md.level = theForm.querySelector("#level").value.trim();
-	md.gender = getCheckedRadio("gender");
-	md.raceModifier = getCheckedRadio("raceModifier");
-	const raceValue = theForm.querySelector("#races").value.trim();
-	if (raceValue === "") {
-		md.races = ["Human"];
+	md.level = theForm.querySelector('#level').value.trim();
+	md.gender = getCheckedRadio('gender');
+	md.raceModifier = getCheckedRadio('raceModifier');
+	const raceValue = theForm.querySelector('#races').value.trim();
+	if (raceValue === '') {
+		md.races = ['Human'];
 	} else {
-		md.races = arrayTrim(theForm.querySelector("#races").value.split("\n"));
+		md.races = arrayTrim(theForm.querySelector('#races').value.split('\n'));
 	}
-	md.classModifier = getCheckedRadio("classModifier");
-	const classesValue = theForm.querySelector("#classes").value.trim();
-	if (classesValue === "") {
+	md.classModifier = getCheckedRadio('classModifier');
+	const classesValue = theForm.querySelector('#classes').value.trim();
+	if (classesValue === '') {
 		md.classes = undefined;
 	} else {
-		md.classes = arrayTrim(theForm.querySelector("#classes").value.split("\n"));
+		md.classes = arrayTrim(theForm.querySelector('#classes').value.split('\n'));
 	}
-	const gearValue = theForm.querySelector("#gear").value.trim();
-	if (gearValue === "") {
+	const gearValue = theForm.querySelector('#gear').value.trim();
+	if (gearValue === '') {
 		md.gear = undefined;
 	} else {
-		md.gear = arrayTrim(theForm.querySelector("#gear").value.split("\n"));
+		md.gear = arrayTrim(theForm.querySelector('#gear').value.split('\n'));
 	}
-	md.steed = theForm.querySelector("#steed").value.trim();
-	md.foe = theForm.querySelector("#foe").value.trim();
+	md.steed = theForm.querySelector('#steed').value.trim();
+	md.foe = theForm.querySelector('#foe').value.trim();
 
 	return md;
 };
 
 const arrayFix = (array) => {
 	const filteredArray = array.filter((item) => {
-		return item !== "";
+		return item !== '';
 	});
 
 	return filteredArray;
@@ -77,10 +77,10 @@ const arrayFixAndJoin = (array, joiner) => {
 
 const createOutputFromForm = () => {
 	const formData = getFormData();
-	const outputDiv = document.createElement("div");
-	outputDiv.id = "generated-output";
+	const outputDiv = document.createElement('div');
+	outputDiv.id = 'generated-output';
 
-	let htmlStr = "";
+	let htmlStr = '';
 	htmlStr += `<p>`;
 	htmlStr += `The winner was <strong class="munchkin">${formData.name}</strong>, a`;
 	htmlStr += ` <strong class="munchkin">level ${formData.level} `;
@@ -88,14 +88,14 @@ const createOutputFromForm = () => {
 	if (formData.raceModifier) {
 		htmlStr += ` ${formData.raceModifier}`;
 	}
-	htmlStr += ` ${arrayFixAndJoin(formData.races, "/")}`;
+	htmlStr += ` ${arrayFixAndJoin(formData.races, '/')}`;
 	if (formData.classModifier) {
 		htmlStr += ` ${formData.classModifier}`;
 	}
 	if (formData.classes) {
-		htmlStr += ` ${arrayFixAndJoin(formData.classes, "/")}`;
+		htmlStr += ` ${arrayFixAndJoin(formData.classes, '/')}`;
 	}
-	htmlStr += "</strong>";
+	htmlStr += '</strong>';
 	if (formData.gear) {
 		htmlStr += `, using their <strong class="munchkin">${formatGear(
 			arrayFix(formData.gear)
@@ -110,22 +110,22 @@ const createOutputFromForm = () => {
 	}
 
 	outputDiv.innerHTML = htmlStr;
-	document.querySelector("#output").replaceChildren(outputDiv);
+	document.querySelector('#output').replaceChildren(outputDiv);
 };
 
 const init = () => {
-	const theForm = document.querySelector("form");
-	console.log("load");
+	const theForm = document.querySelector('form');
+	console.log('load');
 
 	createOutputFromForm();
 
 	const eventList = [
-		"change",
-		"keyup",
-		"paste",
-		"input",
-		"propertychange",
-		"click",
+		'change',
+		'keyup',
+		'paste',
+		'input',
+		'propertychange',
+		'click',
 	];
 	const formInputs = theForm.querySelectorAll(
 		'input[type="text"], input[type="radio"], textarea'
@@ -136,12 +136,12 @@ const init = () => {
 		}
 	}
 
-	const printButton = document.querySelector("button");
-	printButton.addEventListener("click", (event) => {
+	const printButton = document.querySelector('button');
+	printButton.addEventListener('click', (event) => {
 		event.preventDefault();
-		console.log("print clicked");
+		console.log('print clicked');
 		window.print();
 	});
 };
 
-window.addEventListener("load", init);
+window.addEventListener('load', init);
