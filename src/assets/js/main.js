@@ -98,7 +98,7 @@ const createOutputFromForm = () => {
 	htmlStr += '</strong>';
 	if (formData.gear) {
 		htmlStr += `, using their <strong class="munchkin">${formatGear(
-			arrayFix(formData.gear)
+			arrayFix(formData.gear),
 		)}</strong>`;
 	}
 	if (formData.steed) {
@@ -128,7 +128,7 @@ const init = () => {
 		'click',
 	];
 	const formInputs = theForm.querySelectorAll(
-		'input[type="text"], input[type="radio"], textarea'
+		'input[type="text"], input[type="radio"], textarea',
 	);
 	for (const formInput of formInputs) {
 		for (const event of eventList) {
